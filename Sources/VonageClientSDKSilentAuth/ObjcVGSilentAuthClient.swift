@@ -5,7 +5,7 @@ import SilentAuthSDK
 /// Kotlin supports interoperability with Objective-C dependencies and Swift dependencies if their APIs are exported to Objective-C with the @objc attribute.
 
 @objc open class ObjcVGSilentAuthClient: NSObject {
-    private let sdk = SilentAuthSDK()
+    private let sdk = ObjcSilentAuthSDK()
     
     /// This method perform open a given a URL over a data cellular connectivity
     /// - Parameters:

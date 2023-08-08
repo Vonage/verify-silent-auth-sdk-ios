@@ -14,5 +14,5 @@ Pod::Spec.new do |spec|
     spec.source       = { :git => "https://github.com/Vonage/verify-silent-auth-sdk-ios.git", :tag => "#{spec.version}" }
     spec.source_files  = "Sources/VonageClientSDKSilentAuth/**/*.swift"
     spec.xcconfig = { "SWIFT_VERSION" => "5.3" }
-    spec.dependency 'silentauth-sdk-ios', '~> 1.0.5'
+    spec.dependency 'silentauth-sdk-ios', '1.0.5'
 end
