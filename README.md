@@ -50,6 +50,7 @@ client.openWithDataCellular(url: url, debug: true) { response in
 ### Responses
 
 * Success
+
 When the data connectivity has been achieved and a response has been received from the url endpoint
 ```
 {
@@ -65,6 +66,7 @@ When the data connectivity has been achieved and a response has been received fr
 ```
 
 * Error 
+
 When data connectivity is not available and/or an internal SDK error occurred
 
 ```
