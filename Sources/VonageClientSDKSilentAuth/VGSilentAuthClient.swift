@@ -1,5 +1,9 @@
 import Foundation
+#if canImport(silentauth_sdk_ios)
+import silentauth_sdk_ios
+#else
 import SilentAuthSDK
+#endif
 
 open class VGSilentAuthClient {
     private let sdk: SilentAuthSDK

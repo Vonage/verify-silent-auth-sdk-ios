@@ -1,5 +1,10 @@
 import Foundation
+
+#if canImport(silentauth_sdk_ios)
+import silentauth_sdk_ios
+#else
 import SilentAuthSDK
+#endif
 
 /// This class is only to be used by KMM (Kotlin Multiplatform) developers as Pure Swift dependencies are not yet supported. (v1.6.20 14/4/21)
 /// Kotlin supports interoperability with Objective-C dependencies and Swift dependencies if their APIs are exported to Objective-C with the @objc attribute.
