@@ -2,7 +2,11 @@ import Foundation
 import SilentAuthSDK
 
 open class VGSilentAuthClient {
-    private let sdk = SilentAuthSDK()
+    private let sdk: SilentAuthSDK
+    
+    public init() {
+        sdk = SilentAuthSDK()
+    }
     
     /// This method perform open a given a URL over a data cellular connectivity
     /// - Parameters:
