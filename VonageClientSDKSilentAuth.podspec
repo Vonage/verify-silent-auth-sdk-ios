@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
     spec.documentation_url = "https://developer.vonage.com/en/verify/verify-v2/overview"
     spec.platforms = { :ios => "12.0" }
     spec.swift_version = "5.3"
-    spec.source       = { :git => "https://github.com/Vonage/verify-silent-auth-sdk-ios.git", :branch => "#{spec.version}" }
+    spec.source       = { :git => "https://github.com/Vonage/verify-silent-auth-sdk-ios.git", :tag => "#{spec.version}" }
     spec.source_files  = "Sources/VonageClientSDKSilentAuth/**/*.swift"
     spec.xcconfig = { "SWIFT_VERSION" => "5.3" }
     spec.dependency 'silentauth-sdk-ios', '1.0.5'
