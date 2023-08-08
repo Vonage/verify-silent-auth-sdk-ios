@@ -1,46 +1,34 @@
 import Foundation
-import CoreTelephony
+
+#if canImport(silentauth_sdk_ios)
+import silentauth_sdk_ios
+#else
+import SilentAuthSDK
+#endif
 
 /// This class is only to be used by KMM (Kotlin Multiplatform) developers as Pure Swift dependencies are not yet supported. (v1.6.20 14/4/21)
 /// Kotlin supports interoperability with Objective-C dependencies and Swift dependencies if their APIs are exported to Objective-C with the @objc attribute.
 
-@available(macOS 10.15, *)
-@available(iOS 12.0, *)
 @objc open class ObjcVGSilentAuthClient: NSObject {
+    private let sdk = ObjcSilentAuthSDK()
     
-    private let connectionManager: ConnectionManager
-    private let operators: String?
-
-    init(connectionManager: ConnectionManager) {
-        self.connectionManager = connectionManager
-        // retrieve operators associated with handset:
-        // a commas separated list of mobile operators (MCCMNC)
-        let t = CTTelephonyNetworkInfo()
-        var ops: Array<String> = Array()
-        for (_, carrier) in t.serviceSubscriberCellularProviders ?? [:] {
-            let op: String = String(format: "%@%@",carrier.mobileCountryCode ?? "", carrier.mobileNetworkCode ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
-            if (op.lengthOfBytes(using: .utf8)>0) {
-                ops.append(op)
-            }
-        }
-        if (!ops.isEmpty) {
-            self.operators = ops.joined(separator: ",")
-        } else {
-            self.operators = nil
-        }
+    /// This method perform open a given a URL over a data cellular connectivity
+    /// - Parameters:
+    ///   - url: URL of the Vonage Verify API
+    ///   - debug A flag to include or not the url trace in the response
+    ///   - completion: closure to report the URL response. Note that, this closure will be called on the Main Thread.
+    public func openWithDataCellular(url: URL, debug: Bool, completion: @escaping ([String : Any]) -> Void) {
+        sdk.openWithDataCellular(url: url, debug: debug, completion: completion)
     }
 
-    public override convenience init() {
-        self.init(connectionManager: CellularConnectionManager())
+    /// This method perform open a given a URL over a data cellular connectivity
+    /// - Parameters:
+    ///   - url: URL of the Vonage Verify API
+    ///   - accessToken Optional Access Token to be added in the Authorization header (Bearer)
+    ///   - debug A flag to include or not the url trace in the response
+    ///   - completion: closure to report the URL response. Note that, this closure will be called on the Main Thread.
+    public func openWithDataCellularAndAccessToken(url: URL, accessToken: String?, debug: Bool, completion: @escaping ([String : Any]) -> Void) {
+        sdk.openWithDataCellularAndAccessToken(url: url, accessToken: accessToken, debug: debug, completion: completion)
     }
-
-    @objc public func openWithDataCellular(url: URL, debug: Bool, completion: @escaping ([String : Any]) -> Void) {
-        connectionManager.open(url: url, accessToken: nil, debug: debug, operators: self.operators, completion: completion)
-    }
-
-    @objc public func openWithDataCellularAndAccessToken(url: URL, accessToken: String?, debug: Bool, completion: @escaping ([String : Any]) -> Void) {
-        connectionManager.open(url: url, accessToken: accessToken, debug: debug, operators: self.operators, completion: completion)
-    }
-
 }
 
