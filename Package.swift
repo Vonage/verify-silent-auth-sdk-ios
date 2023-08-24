@@ -11,7 +11,7 @@ let package = Package(
             targets: ["VonageClientSDKSilentAuth"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/silentauth/silentauth-sdk-ios.git",.exact("1.0.5"))
+        .package(url: "https://github.com/silentauth/silentauth-sdk-ios.git",.exact("1.0.7"))
     ],
     targets: [
         .target(
