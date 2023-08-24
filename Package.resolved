@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/silentauth/silentauth-sdk-ios.git",
         "state": {
           "branch": null,
-          "revision": "8bf3b1479d83622ae7a567074a09683ce4fbe287",
-          "version": "1.0.5"
+          "revision": "d5b70f8ef7911b649eafedfbc8b1428b111e8a17",
+          "version": "1.0.7"
         }
       }
     ]
