@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name         = "VonageClientSDKSilentAuth"
-    spec.version      = "1.0.3"
+    spec.version      = "1.0.4"
     spec.summary      = "SDK for Vonage Verify Silent Authentication"
     spec.description  = <<-DESC
     Vonage Verify Silent Authentication uses a mobile phone's Subscriber Identity Module (SIM) to prove a user's identity, without any user input. This SDK enables making a HTTP request over cellular even when on WiFi.
@@ -15,4 +15,6 @@ Pod::Spec.new do |spec|
     spec.source_files  = "Sources/VonageClientSDKSilentAuth/**/*.swift"
     spec.xcconfig = { "SWIFT_VERSION" => "5.3" }
     spec.dependency 'silentauth-sdk-ios', '1.0.7'
+    spec.deprecated = true
+    spec.deprecated_in_favor_of = 'VonageClientLibrary'
 end
